@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import Services from '../components/Services.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import ServiceAreas from '../components/ServiceAreas.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Gallery from '../components/Gallery.astro';
+import ContactCta from '../components/ContactCta.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Concrete Estimates Davenport IA | Northline Concrete Pros"
+  description="Northline Concrete Pros helps homeowners in Davenport, Bettendorf, Moline & Rock Island connect with local concrete professionals. Free estimates."
+  path="/"
+>
+  <Header />
+  <main id="main">
+    <Hero />
+    <TrustStrip />
+    <Services />
+    <WhyChooseUs />
+    <ServiceAreas />
+    <Testimonials />
+    <Gallery />
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

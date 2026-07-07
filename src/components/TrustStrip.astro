@@ -1,0 +1,58 @@
+---
+const items = [
+  { value: 'Local Network', label: 'concrete pros across the Quad Cities' },
+  { value: 'Free Estimates', label: 'no obligation to hire' },
+  { value: 'Fast Response', label: 'requests reviewed quickly' },
+  { value: 'All Project Types', label: 'driveways to repairs' },
+];
+---
+
+<section class="trust-strip" aria-label="Why homeowners trust Northline Concrete Pros">
+  <div class="container trust-inner">
+    {
+      items.map((item, index) => (
+        <div class="trust-item" style={`--i:${index}`}>
+          <p class="trust-value">{item.value}</p>
+          <p class="trust-label">{item.label}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .trust-strip {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .trust-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg) var(--space-md);
+    padding-block: var(--space-lg);
+  }
+
+  .trust-item {
+    padding-inline-start: var(--space-sm);
+    border-left: 1px solid var(--color-border);
+  }
+
+  .trust-value {
+    font-size: var(--text-title);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-primary);
+  }
+
+  .trust-label {
+    font-size: var(--text-body-sm);
+    color: var(--color-muted);
+    margin-top: var(--space-3xs);
+  }
+
+  @media (min-width: 640px) {
+    .trust-inner {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+
+const { title, description, path = '/' } = Astro.props;
+const canonicalURL = new URL(path, Astro.site);
+
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://northlineconcretepros.com/#business',
+  name: 'Northline Concrete Pros',
+  description:
+    'Northline Concrete Pros helps homeowners in Davenport and the Quad Cities connect with local concrete professionals for driveways, patios, stamped concrete, repair and sidewalks.',
+  email: 'info@northlineconcretepros.com',
+  url: 'https://northlineconcretepros.com',
+  areaServed: [
+    { '@type': 'City', name: 'Davenport, IA' },
+    { '@type': 'City', name: 'Bettendorf, IA' },
+    { '@type': 'City', name: 'Moline, IL' },
+    { '@type': 'City', name: 'Rock Island, IL' },
+  ],
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#193249" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,186 @@
+---
+const services = [
+  {
+    title: 'Concrete Driveways',
+    description:
+      'Durable, custom driveways built to shrug off Iowa winters — from a straightforward pour to a full tear-out and replace.',
+    image: 'https://images.unsplash.com/photo-1781637202423-33ec5b47e52e?auto=format&fit=crop&w=1400&q=80',
+    alt: 'Finished concrete driveway leading up to a home garage',
+    featured: true,
+  },
+  {
+    title: 'Concrete Patios',
+    description: 'Custom patios that extend your living space outdoors, built to pair with your landscaping.',
+    image: 'https://images.unsplash.com/photo-1704747885537-99df83ca963f?auto=format&fit=crop&w=900&q=80',
+    alt: 'Outdoor concrete patio furnished with a table and chairs',
+  },
+  {
+    title: 'Concrete Repair',
+    description: 'Crack repair, resurfacing, and leveling — we tell you honestly when repair beats replacement.',
+    image: 'https://images.unsplash.com/photo-1546816077-623b4eaab352?auto=format&fit=crop&w=900&q=80',
+    alt: 'Close-up of a crack across a concrete surface awaiting repair',
+  },
+  {
+    title: 'Stamped Concrete',
+    description: 'Decorative patterns and color that read as natural stone at a fraction of the cost.',
+    image: 'https://images.unsplash.com/photo-1769442263032-06c17a493bea?auto=format&fit=crop&w=900&q=80',
+    alt: 'Textured, patterned stamped concrete walkway with cast shadows',
+  },
+  {
+    title: 'Sidewalk Installation',
+    description: 'Residential and commercial walkways poured to code, with municipal permitting handled for you.',
+    image: 'https://images.unsplash.com/photo-1590672813598-24acae291d66?auto=format&fit=crop&w=900&q=80',
+    alt: 'Plain gray concrete walkway running between buildings',
+  },
+];
+---
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Concrete Services We Help With</h2>
+      <p class="measure">
+        Submit a request for any of these projects and we'll match you with available local
+        concrete professionals serving your area.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {
+        services.map((service) => (
+          <article class:list={['service-card', { 'service-card--featured': service.featured }]}>
+            <img src={service.image} alt={service.alt} loading="lazy" width="900" height="700" />
+            <div class="service-card-body">
+              <h3>{service.title}</h3>
+              <p class="measure">{service.description}</p>
+              <a href="#contact" class="service-card-link">
+                Ask about this service
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding-block: var(--space-2xl);
+  }
+
+  .section-heading {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-heading h2 {
+    font-size: var(--text-headline);
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-heading p {
+    color: var(--color-muted);
+    font-size: var(--text-body);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .service-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .service-card-body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    flex: 1;
+  }
+
+  .service-card-body h3 {
+    font-size: var(--text-title);
+  }
+
+  .service-card-body p {
+    color: var(--color-muted);
+    font-size: var(--text-body-sm);
+    flex: 1;
+  }
+
+  .service-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    margin-top: var(--space-sm);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .service-card-link svg {
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .service-card:hover .service-card-link svg {
+    transform: translateX(3px);
+  }
+
+  @media (min-width: 720px) {
+    .services-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: auto;
+    }
+
+    .service-card {
+      grid-column: span 2;
+    }
+
+    .service-card--featured {
+      grid-column: span 4;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+    }
+
+    .service-card--featured img {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    .service-card--featured .service-card-body {
+      justify-content: center;
+      padding: var(--space-lg);
+    }
+
+    .service-card--featured h3 {
+      font-size: var(--text-headline);
+    }
+
+    .service-card--featured p {
+      font-size: var(--text-body);
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .service-card {
+      grid-column: span 1;
+    }
+  }
+</style>

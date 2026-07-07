@@ -1,0 +1,42 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CityDetail from '../../../components/CityDetail.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+---
+
+<Layout
+  title="Concrete Contractor in Bettendorf, IA | Northline Concrete Pros"
+  description="Connect with local concrete professionals serving Bettendorf. Driveways, patios, repair, stamped concrete & sidewalks. Free estimates."
+  path="/service-areas/bettendorf/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Service Area"
+      title="Concrete Contractor in Bettendorf"
+      subtitle="Request a free estimate and get matched with local concrete professionals serving Bettendorf's bluff-top neighborhoods and newer developments."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas', href: '/service-areas/' }, { label: 'Bettendorf' }]}
+    />
+
+    <CityDetail
+      introHeading="Bluff neighborhoods and new construction"
+      introParagraphs={[
+        "Bettendorf covers two very different kinds of projects: the older bluff neighborhoods along the Mississippi with mature trees and sloped lots, and the newer developments further north where driveways and patios are often poured on fresh-graded lots for builders and homeowners alike.",
+        "Submit a request and we'll match you with a local professional experienced in your part of Bettendorf.",
+      ]}
+      image="https://images.unsplash.com/photo-1704747885537-99df83ca963f?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Concrete patio in a Bettendorf, Iowa backyard"
+      localNotes={[
+        'Matched professionals experienced with tree-root management on bluff-side properties near the Mississippi River, where root intrusion is a common cause of driveway and sidewalk cracking.',
+        'Professionals familiar with newer Bettendorf subdivisions and coordinating pour schedules on new-construction driveways and patios.',
+        "Professionals familiar with the City of Bettendorf's permitting process for sidewalk and right-of-way work.",
+      ]}
+    />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

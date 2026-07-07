@@ -1,0 +1,42 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CityDetail from '../../../components/CityDetail.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+---
+
+<Layout
+  title="Concrete Contractor in Moline, IL | Northline Concrete Pros"
+  description="Connect with local concrete professionals serving Moline. Driveways, patios, repair, stamped concrete & sidewalks. Free estimates."
+  path="/service-areas/moline/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Service Area"
+      title="Concrete Contractor in Moline"
+      subtitle="Request a free estimate and get matched with local concrete professionals serving Moline, Illinois."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas', href: '/service-areas/' }, { label: 'Moline' }]}
+    />
+
+    <CityDetail
+      introHeading="Cross-river service"
+      introParagraphs={[
+        "Moline is one of our largest Illinois markets — we match requests here with local professionals experienced working on both sides of the river.",
+        "We see a good mix of established near-downtown homes needing repair or sidewalk work, alongside newer residential growth further from the river where driveway and patio installs are more common.",
+      ]}
+      image="https://images.unsplash.com/photo-1546816077-623b4eaab352?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Concrete sidewalk repair project in Moline, Illinois"
+      localNotes={[
+        'Matched professionals who work in both Illinois and Iowa.',
+        "Regular sidewalk and driveway repair requests in Moline's older near-downtown neighborhoods.",
+        'Professionals familiar with Rock Island County and City of Moline permitting requirements for right-of-way work.',
+      ]}
+    />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

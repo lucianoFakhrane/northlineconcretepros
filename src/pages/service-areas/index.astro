@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const areas = [
+  {
+    name: 'Davenport',
+    state: 'IA',
+    href: '/service-areas/davenport/',
+    note: 'Connect with local concrete professionals serving Davenport neighborhoods.',
+  },
+  {
+    name: 'Bettendorf',
+    state: 'IA',
+    href: '/service-areas/bettendorf/',
+    note: 'Matched professionals available for jobs along the Mississippi bluff neighborhoods.',
+  },
+  {
+    name: 'Moline',
+    state: 'IL',
+    href: '/service-areas/moline/',
+    note: 'Cross-river requests matched with Illinois-side professionals.',
+  },
+  {
+    name: 'Rock Island',
+    state: 'IL',
+    href: '/service-areas/rock-island/',
+    note: 'Professionals familiar with Rock Island County permitting requirements.',
+  },
+];
+---
+
+<Layout
+  title="Concrete Contractor Service Areas | Quad Cities"
+  description="Northline Concrete Pros helps homeowners connect with local concrete professionals in Davenport, Bettendorf, Moline & Rock Island. Free estimates."
+  path="/service-areas/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      title="Proudly Serving the Quad Cities"
+      subtitle="Connect with trusted concrete professionals serving Davenport, Bettendorf, Moline, Rock Island, and nearby areas. If you're just outside these four cities, submit a request anyway — we take on nearby areas on a case-by-case basis."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas' }]}
+    />
+
+    <section class="areas-hub">
+      <div class="container areas-grid">
+        {
+          areas.map((area) => (
+            <a href={area.href} class="area-card">
+              <div class="area-card-name">
+                <span>{area.name}</span>
+                <span class="area-card-state">{area.state}</span>
+              </div>
+              <p class="measure">{area.note}</p>
+              <span class="area-card-link">
+                View {area.name} page
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .areas-hub {
+    padding-block: var(--space-2xl);
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .area-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: var(--color-ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    transition: box-shadow var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .area-card:hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .area-card-name {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2xs);
+    font-size: var(--text-title);
+    font-weight: 800;
+  }
+
+  .area-card-state {
+    font-size: var(--text-label);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .area-card p {
+    color: var(--color-muted);
+    font-size: var(--text-body-sm);
+    flex: 1;
+  }
+
+  .area-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    color: var(--color-primary);
+  }
+
+  .area-card-link svg {
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .area-card:hover .area-card-link svg {
+    transform: translateX(3px);
+  }
+</style>

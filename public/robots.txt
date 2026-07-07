@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://northlineconcretepros.com/sitemap-index.xml

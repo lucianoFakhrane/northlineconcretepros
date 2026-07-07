@@ -1,0 +1,77 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+import FAQAccordion from '../../../components/FAQAccordion.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+
+const faqs = [
+  {
+    question: 'Do I need a permit for a new sidewalk in Davenport or Bettendorf?',
+    answer:
+      "Sidewalks within the public right-of-way typically require a municipal permit, and specifications (width, thickness, slope) are set by the city rather than left to preference. Matched professionals typically pull the permit and build to code as part of the job, so you don't have to navigate city hall yourself.",
+  },
+  {
+    question: 'Who is responsible for sidewalk repair — the homeowner or the city?',
+    answer:
+      "In most Quad Cities municipalities, the adjacent property owner is responsible for maintaining the sidewalk in front of their home, even though it sits in the public right-of-way. Requirements vary by city, so the matched professional confirms the specifics for your address before quoting.",
+  },
+  {
+    question: 'How wide does a sidewalk need to be?',
+    answer:
+      "Standard residential sidewalks are typically 4 feet wide; commercial walkways are often required to be wider (5-6 feet) to meet ADA accessibility requirements. The matched professional will confirm the exact spec that applies to your property and project type.",
+  },
+  {
+    question: 'How long does sidewalk installation take?',
+    answer:
+      'A typical residential sidewalk section can be formed and poured in 1-2 days, with a full week before it should carry regular foot traffic and closer to 28 days before it reaches full cure strength.',
+  },
+];
+---
+
+<Layout
+  title="Concrete Sidewalk Installation Davenport IA | Northline"
+  description="Residential and commercial sidewalk installation, poured to code with municipal permitting handled. Serving Davenport, Bettendorf, Moline & Rock Island."
+  path="/services/sidewalk-installation/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Concrete Services"
+      title="Sidewalk & Walkway Installation"
+      subtitle="Residential and commercial walkways poured to code — matched professionals handle municipal permitting so you don't have to."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Sidewalks' }]}
+    />
+
+    <ServiceDetail
+      introHeading="Poured to code, permitted properly, built to last"
+      introParagraphs={[
+        "Sidewalks that sit in the public right-of-way come with municipal specs most homeowners never see — required width, slope, and thickness that vary by city. Matched professionals handle the permitting and build to spec, whether it's a short front-entry walkway or a full property-line sidewalk replacement.",
+        "For commercial properties, professionals build to ADA accessibility requirements including proper slope and width for wheelchair access.",
+      ]}
+      image="https://images.unsplash.com/photo-1590672813598-24acae291d66?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Plain gray concrete walkway running between buildings"
+      benefitsHeading="Why sidewalk installation is different from a driveway or patio"
+      benefits={[
+        { title: 'Municipal permitting', detail: 'The matched professional pulls the required permit and confirms city-specific width and thickness requirements before forming the walk.' },
+        { title: 'Right-of-way awareness', detail: "Professionals coordinate around utility markings and easements that don't apply to a private driveway or patio pour." },
+        { title: 'ADA compliance for commercial', detail: 'Slope, width, and surface texture built to accessibility code for business and multi-family properties.' },
+        { title: 'Matches surrounding grade', detail: 'Poured to tie in cleanly with existing driveways, curbs, and neighboring sidewalk sections.' },
+      ]}
+      processHeading="A typical sidewalk installation process"
+      steps={[
+        { title: 'Free estimate & permit check', detail: "The matched professional assesses the scope, confirms your city's specific sidewalk requirements, and pulls the permit if the project requires one." },
+        { title: 'Excavation & base prep', detail: 'Old sidewalk removed if applicable, subgrade compacted, and a proper base laid to code thickness.' },
+        { title: 'Forming to spec', detail: 'Forms set to the required width and slope, with expansion joints placed to match municipal standards.' },
+        { title: 'Pour & cure', detail: 'Poured, finished, and roped off during the cure period — typically ready for foot traffic within a week.' },
+      ]}
+    />
+
+    <FAQAccordion items={faqs} />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

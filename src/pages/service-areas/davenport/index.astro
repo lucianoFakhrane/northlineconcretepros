@@ -1,0 +1,42 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CityDetail from '../../../components/CityDetail.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+---
+
+<Layout
+  title="Concrete Contractor in Davenport, IA | Northline Concrete Pros"
+  description="Connect with local concrete professionals serving Davenport. Driveways, patios, repair, stamped concrete & sidewalks. Free estimates."
+  path="/service-areas/davenport/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Service Area"
+      title="Concrete Contractor in Davenport"
+      subtitle="Request a free estimate and get matched with local concrete professionals serving Davenport neighborhoods."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas', href: '/service-areas/' }, { label: 'Davenport' }]}
+    />
+
+    <CityDetail
+      introHeading="Serving Davenport neighborhoods"
+      introParagraphs={[
+        "We help connect homeowners across Davenport with local concrete professionals — from driveway replacements in the Village of East Davenport and near Vander Veer Park, to patios and repair jobs across McClellan Heights and the Duck Creek corridor.",
+        "Submit a request and a matched professional will follow up to schedule a free, no-obligation estimate.",
+      ]}
+      image="https://images.unsplash.com/photo-1781637202423-33ec5b47e52e?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Concrete driveway in a Davenport, Iowa residential neighborhood"
+      localNotes={[
+        'Matched professionals familiar with the older housing stock near Vander Veer Park and the Village of East Davenport, where narrower lots often mean tighter access for equipment.',
+        'Regular repair requests along the Duck Creek corridor, where drainage and grading issues are common.',
+        'Professionals experienced with City of Davenport sidewalk and right-of-way permitting.',
+      ]}
+    />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

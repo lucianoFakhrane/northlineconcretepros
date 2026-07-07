@@ -1,0 +1,90 @@
+---
+const projects = [
+  { title: 'Driveway Replacement', detail: 'Full tear-out and repour, or a straightforward new pour.' },
+  { title: 'Concrete Patio Installation', detail: 'Custom patios sized and shaped to fit your backyard.' },
+  { title: 'Cracked Concrete Repair', detail: 'Crack repair, leveling, and resurfacing for existing slabs.' },
+  { title: 'Stamped Concrete', detail: 'Decorative patterns and color that read as natural stone.' },
+  { title: 'Sidewalk Installation', detail: 'Residential and commercial walkways poured to code.' },
+  { title: 'Garage Slabs', detail: 'New slabs for garages, sheds, and other outbuildings.' },
+];
+---
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Common Concrete Projects We Help With</h2>
+      <p class="measure">Whatever the project, submit a request and we'll match you with local concrete professionals who handle it.</p>
+    </div>
+
+    <div class="projects-grid">
+      {
+        projects.map((project) => (
+          <div class="project-card">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            <div>
+              <p class="project-title">{project.title}</p>
+              <p class="project-detail">{project.detail}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding-block: var(--space-2xl);
+    background: var(--color-primary);
+    color: var(--color-primary-ink);
+  }
+
+  .projects .section-heading h2 {
+    font-size: var(--text-headline);
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary-ink);
+  }
+
+  .projects .section-heading p {
+    color: color-mix(in oklch, var(--color-primary-ink) 85%, transparent);
+    margin-bottom: var(--space-xl);
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .project-card {
+    background: color-mix(in oklch, var(--color-primary-ink) 8%, transparent);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .project-card svg {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    margin-top: 0.15em;
+  }
+
+  .project-title {
+    font-weight: 700;
+    margin-bottom: var(--space-3xs);
+  }
+
+  .project-detail {
+    font-size: var(--text-body-sm);
+    color: color-mix(in oklch, var(--color-primary-ink) 80%, transparent);
+  }
+
+  @media (min-width: 900px) {
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

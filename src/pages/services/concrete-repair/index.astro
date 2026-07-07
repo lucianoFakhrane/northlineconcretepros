@@ -1,0 +1,77 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+import FAQAccordion from '../../../components/FAQAccordion.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+
+const faqs = [
+  {
+    question: 'How do I know if my concrete needs repair or full replacement?',
+    answer:
+      "Hairline surface cracks, minor scaling, and small trip-hazard offsets (under about 1 inch) are usually repairable. If a slab has multiple large cracks running through it, has sunk more than an inch, or the base underneath has clearly washed out, replacement is the honest recommendation. The matched professional will tell you which situation you're in during the free estimate — repair is cheaper, so a reputable pro won't upsell replacement when repair will hold.",
+  },
+  {
+    question: 'Can a professional fix a sunken or uneven slab without replacing it?',
+    answer:
+      "Often yes, through polyurethane foam leveling (mudjacking's modern replacement) — expanding foam is pumped beneath the slab to raise it back to grade. It's a same-day process, costs a fraction of replacement, and is a common fix for sunken sidewalk sections and driveway aprons.",
+  },
+  {
+    question: 'What causes concrete cracks in the first place?',
+    answer:
+      "In the Quad Cities, the leading cause is freeze-thaw cycling combined with inadequate control joints or a poorly compacted base from the original install. Tree root intrusion and water washing out sub-base material are the next most common causes found on repair calls.",
+  },
+  {
+    question: 'Is concrete repair covered by insurance if a tree root caused it?',
+    answer:
+      "Sometimes, depending on your policy and whether the damage is classified as sudden or gradual. A matched professional can typically provide a written repair estimate and photos you can submit to your insurer, but we'd recommend checking with your agent directly on coverage specifics.",
+  },
+];
+---
+
+<Layout
+  title="Concrete Repair & Resurfacing Davenport IA | Northline"
+  description="Crack repair, slab leveling, and resurfacing for driveways, patios and sidewalks across the Quad Cities. Honest advice on repair vs. replacement."
+  path="/services/concrete-repair/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Concrete Services"
+      title="Concrete Repair & Resurfacing"
+      subtitle="Cracked, sunken, or scaling concrete doesn't always need to be torn out. Get matched with a professional who'll give you the honest read on repair versus replacement."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Repair' }]}
+    />
+
+    <ServiceDetail
+      introHeading="Repair when repair works, replace when it doesn't"
+      introParagraphs={[
+        "A lot of contractors quote a full tear-out on every call because it's the bigger job. A good professional inspects the slab, the base underneath if accessible, and the pattern of damage, then tells you plainly which category your concrete falls into.",
+        "Most repair requests we match involve driveway cracks, sunken sidewalk sections that have become a trip hazard, and scaling patios where the surface has flaked away from repeated freeze-thaw cycles without sealing.",
+      ]}
+      image="https://images.unsplash.com/photo-1546816077-623b4eaab352?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Close-up of a crack across a concrete surface awaiting repair"
+      benefitsHeading="Signs your concrete needs attention"
+      benefits={[
+        { title: 'Cracks wider than 1/4 inch', detail: 'Hairline cracks are cosmetic; wider cracks let water in and will expand with each freeze-thaw cycle.' },
+        { title: 'Sunken or uneven sections', detail: 'A slab edge that has dropped relative to its neighbor is both a trip hazard and a sign the base has washed out below it.' },
+        { title: 'Surface scaling or flaking', detail: 'Usually caused by de-icing salt exposure without sealing — repairable through resurfacing if caught before it goes deep.' },
+        { title: 'Pooling water on the surface', detail: 'Concrete that no longer sheds water properly is a sign the original grade has settled and may need releveling.' },
+      ]}
+      processHeading="How a repair request is typically handled"
+      steps={[
+        { title: 'Free inspection', detail: 'The matched professional looks at the slab, the crack pattern, and where possible, the base underneath, to diagnose the actual cause.' },
+        { title: 'Honest recommendation', detail: "You get a written repair quote and, if replacement really is the better long-term call, a good professional will say so." },
+        { title: 'Repair, level, or resurface', detail: "Depending on the diagnosis: crack routing and sealing, polyurethane foam leveling, or a resurfacing overlay." },
+        { title: 'Follow-up sealing', detail: 'A sealant application after repair is usually recommended to protect against the next round of Iowa winters.' },
+      ]}
+    />
+
+    <FAQAccordion items={faqs} />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

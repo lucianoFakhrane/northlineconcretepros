@@ -1,0 +1,77 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+import FAQAccordion from '../../../components/FAQAccordion.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+
+const faqs = [
+  {
+    question: 'What size patio should I build?',
+    answer:
+      "Most Quad Cities backyard patios run 200-400 sq ft — enough for a dining set and a grill or fire pit with room to move. If you're planning an outdoor kitchen or a larger gathering space, the matched professional will walk the yard with you and talk through sightlines, sun exposure, and how it connects to your back door before settling on a footprint.",
+  },
+  {
+    question: 'Can a professional build a patio around existing landscaping?',
+    answer:
+      "Yes — this is one of the more common patio projects we match. Professionals typically form around existing trees, garden beds, and downspouts, and can cut in curved edges rather than sticking to straight rectangles if that suits your yard better.",
+  },
+  {
+    question: "How is drainage handled so water doesn't pool on the patio?",
+    answer:
+      "A well-built patio is graded with a slight slope (typically 1/8\" per foot) away from the house to keep water from pooling or running toward your foundation. If your yard has a tricky grade, the matched professional will factor that into the plan during your estimate.",
+  },
+  {
+    question: 'Plain concrete or stamped for a patio?',
+    answer:
+      "Depends on your budget and style. A broom-finished patio is the most economical and still looks clean with a border accent. If you want the look of natural stone or pavers without the cost, stamped concrete is worth a look — see our stamped concrete page for details.",
+  },
+];
+---
+
+<Layout
+  title="Concrete Patio Installation Quad Cities | Northline Concrete Pros"
+  description="Custom concrete patios built to extend your living space outdoors. Serving Davenport, Bettendorf, Moline & Rock Island. Free estimates."
+  path="/services/concrete-patios/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Concrete Services"
+      title="Custom Concrete Patios"
+      subtitle="More time outdoors starts with a slab that's graded right, finished well, and shaped to fit the yard you actually have."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Patios' }]}
+    />
+
+    <ServiceDetail
+      introHeading="A patio built around how you actually use your backyard"
+      introParagraphs={[
+        "A good patio project starts with walking the yard together — where the grill goes, which direction the evening sun hits, how it connects back to the house. The slab comes after that conversation, not before.",
+        "Whether it's a simple broom-finished rectangle off the back door or a stamped, multi-level patio built around a fire pit, the professionals we match you with plan for drainage and long-term durability from the first stake in the ground.",
+      ]}
+      image="https://images.unsplash.com/photo-1704747885537-99df83ca963f?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Outdoor concrete patio furnished with a table and chairs"
+      benefitsHeading="Why homeowners choose a concrete patio"
+      benefits={[
+        { title: 'Built to your layout', detail: "Curved edges, steps, and multi-level designs are all on the table — not limited to a straight-edge rectangle." },
+        { title: 'Pairs with landscaping', detail: 'Professionals typically form around existing trees, beds, and irrigation rather than asking you to remove them.' },
+        { title: 'Proper drainage', detail: "Graded away from your foundation so water doesn't pool against the house after a storm." },
+        { title: 'Low maintenance', detail: 'A sealed concrete patio needs far less upkeep than pavers, which can shift and grow weeds between joints.' },
+      ]}
+      processHeading="A typical patio installation process"
+      steps={[
+        { title: 'Design walkthrough', detail: "The matched professional meets at your home, talks through how you'll use the space, and sketches a layout before quoting." },
+        { title: 'Excavation & grading', detail: 'Site excavated and graded for proper drainage away from the house, base compacted for a stable slab.' },
+        { title: 'Forming & finish selection', detail: 'Forms set to your layout; broom finish, exposed aggregate, or stamped pattern confirmed before the pour.' },
+        { title: 'Pour, finish & seal', detail: 'Concrete poured and finished same-day, with sealing recommended within the first month to protect against staining.' },
+      ]}
+    />
+
+    <FAQAccordion items={faqs} />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

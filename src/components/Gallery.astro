@@ -1,0 +1,74 @@
+---
+const photos = [
+  {
+    src: 'https://images.unsplash.com/photo-1781637202423-33ec5b47e52e?auto=format&fit=crop&w=900&q=80',
+    alt: 'Completed concrete driveway in front of a home garage',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1774931363306-5a896cd4dd02?auto=format&fit=crop&w=900&q=80',
+    alt: 'Crew finishing a fresh concrete pour',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1769442263032-06c17a493bea?auto=format&fit=crop&w=900&q=80',
+    alt: 'Stamped concrete walkway with decorative pattern',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1704747885537-99df83ca963f?auto=format&fit=crop&w=900&q=80',
+    alt: 'Finished concrete patio furnished with outdoor seating',
+  },
+];
+---
+
+<section class="gallery">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Recent Work</h2>
+      <p class="measure">A quick look at pours around the Quad Cities — full project gallery coming soon.</p>
+    </div>
+
+    <div class="gallery-grid">
+      {
+        photos.map((photo) => (
+          <img src={photo.src} alt={photo.alt} loading="lazy" width="900" height="900" />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery {
+    padding-block: var(--space-2xl);
+  }
+
+  .gallery .section-heading {
+    margin-bottom: var(--space-lg);
+  }
+
+  .gallery .section-heading h2 {
+    font-size: var(--text-headline);
+    margin-bottom: var(--space-sm);
+  }
+
+  .gallery .section-heading p {
+    color: var(--color-muted);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    transition: transform var(--duration-base) var(--ease-out-expo);
+  }
+
+  .gallery-grid img:hover {
+    transform: scale(1.02);
+  }
+</style>

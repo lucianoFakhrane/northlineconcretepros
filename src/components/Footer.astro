@@ -1,0 +1,135 @@
+---
+const year = 2026;
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <p class="wordmark">Northline <span class="wordmark-accent">Concrete Pros</span></p>
+      <p class="footer-tagline measure">
+        Connecting Quad Cities homeowners with local concrete professionals for driveways, patios,
+        stamped concrete, repair and sidewalks.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-heading">Services</h2>
+      <ul>
+        <li><a href="/services/concrete-driveways/">Concrete Driveways</a></li>
+        <li><a href="/services/concrete-patios/">Concrete Patios</a></li>
+        <li><a href="/services/concrete-repair/">Concrete Repair</a></li>
+        <li><a href="/services/stamped-concrete/">Stamped Concrete</a></li>
+        <li><a href="/services/sidewalk-installation/">Sidewalk Installation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-heading">Service Areas</h2>
+      <ul>
+        <li><a href="/service-areas/davenport/">Davenport, IA</a></li>
+        <li><a href="/service-areas/bettendorf/">Bettendorf, IA</a></li>
+        <li><a href="/service-areas/moline/">Moline, IL</a></li>
+        <li><a href="/service-areas/rock-island/">Rock Island, IL</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h2 class="footer-heading">Get in Touch</h2>
+      <p><a href="mailto:info@northlineconcretepros.com">info@northlineconcretepros.com</a></p>
+      <p class="footer-hours">Requests reviewed daily</p>
+      <a href="/contact/" class="btn btn-accent footer-cta">Request a Free Estimate</a>
+    </div>
+  </div>
+
+  <div class="container footer-legal">
+    <p>&copy; {year} Northline Concrete Pros. All rights reserved.</p>
+    <p>A free concrete project matching service for the Quad Cities.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-primary);
+    color: var(--color-primary-ink);
+    padding-block: var(--space-2xl) var(--space-lg);
+  }
+
+  .footer-inner {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .footer-brand .wordmark {
+    font-size: 1.375rem;
+    font-weight: 800;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .footer-brand .wordmark-accent {
+    color: var(--color-accent);
+  }
+
+  .footer-tagline {
+    color: color-mix(in oklch, var(--color-primary-ink) 78%, transparent);
+    font-size: var(--text-body-sm);
+  }
+
+  .footer-heading {
+    font-size: var(--text-label);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 0 0 var(--space-sm);
+    color: color-mix(in oklch, var(--color-primary-ink) 70%, transparent);
+  }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .footer-col a {
+    text-decoration: none;
+    color: color-mix(in oklch, var(--color-primary-ink) 92%, transparent);
+    font-size: var(--text-body-sm);
+  }
+
+  .footer-col a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-col p {
+    font-size: var(--text-body-sm);
+    margin-bottom: var(--space-2xs);
+  }
+
+  .footer-hours {
+    color: color-mix(in oklch, var(--color-primary-ink) 70%, transparent);
+    margin-bottom: var(--space-sm) !important;
+  }
+
+  .footer-cta {
+    margin-top: var(--space-2xs);
+  }
+
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2xs);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid color-mix(in oklch, var(--color-primary-ink) 22%, transparent);
+    font-size: var(--text-label);
+    color: color-mix(in oklch, var(--color-primary-ink) 66%, transparent);
+  }
+
+  .footer-legal p {
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import CityDetail from '../../../components/CityDetail.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+---
+
+<Layout
+  title="Concrete Contractor in Rock Island, IL | Northline Concrete Pros"
+  description="Connect with local concrete professionals serving Rock Island. Driveways, patios, repair, stamped concrete & sidewalks. Free estimates."
+  path="/service-areas/rock-island/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Service Area"
+      title="Concrete Contractor in Rock Island"
+      subtitle="Request a free estimate and get matched with local concrete professionals familiar with Rock Island County's permitting requirements."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Service Areas', href: '/service-areas/' }, { label: 'Rock Island' }]}
+    />
+
+    <CityDetail
+      introHeading="Historic homes, modern concrete standards"
+      introParagraphs={[
+        "Rock Island has some of the oldest housing stock in the Quad Cities, particularly around the Broadway Historic District, where original sidewalks and driveways are often original to the home and well past their service life. We match requests here with professionals experienced in full-replacement work.",
+        "We also match requests for property managers and HOAs near the Rock Island Arsenal and the newer residential pockets further from downtown, where sidewalk liability repair is a common need.",
+      ]}
+      image="https://images.unsplash.com/photo-1590672813598-24acae291d66?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Concrete walkway installation near a Rock Island, Illinois home"
+      localNotes={[
+        'Matched professionals experienced replacing original, decades-old driveways and sidewalks in the Broadway Historic District.',
+        'Professionals available for liability repair work for HOAs and property managers near the Rock Island Arsenal area.',
+        'Professionals familiar with Rock Island County permitting for right-of-way sidewalk and driveway apron work.',
+      ]}
+    />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,77 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+import FAQAccordion from '../../../components/FAQAccordion.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+
+const faqs = [
+  {
+    question: 'How much does a concrete driveway cost in the Quad Cities?',
+    answer:
+      "Most residential driveway replacements in Davenport and Bettendorf run between $3,500 and $9,000 depending on square footage, base condition, and finish. A matched local professional gives you a firm, written number after a free on-site measurement — not a phone estimate.",
+  },
+  {
+    question: 'How long does concrete need to cure before I can park on it?',
+    answer:
+      'Foot traffic is generally fine after 24-48 hours. Professionals typically recommend keeping vehicles off a new driveway for a full 7 days, and holding off on heavier loads like RVs or trailers for the full 28-day cure.',
+  },
+  {
+    question: 'Will my new driveway crack over an Iowa winter?',
+    answer:
+      'Some hairline cracking is normal for any concrete slab, but most failures trace back to base-prep or joint-spacing shortcuts from the original install. Quality installations excavate to proper depth, compact a real gravel base, use air-entrained mix rated for freeze-thaw, and cut control joints at the right spacing to control where cracking happens.',
+  },
+  {
+    question: 'Can a professional pour over my existing driveway?',
+    answer:
+      "Overlaying a failing driveway usually just telegraphs the old cracks through the new surface within a year or two, so most professionals won't recommend it. During your estimate, the matched professional will tell you honestly whether a full tear-out is necessary or if your existing base can be reused.",
+  },
+];
+---
+
+<Layout
+  title="Concrete Driveway Installation Davenport IA | Northline Concrete Pros"
+  description="Durable, custom concrete driveways built to last Iowa winters. Serving Davenport, Bettendorf & the Quad Cities. Get a free estimate today."
+  path="/services/concrete-driveways/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Concrete Services"
+      title="Concrete Driveway Installation"
+      subtitle="A driveway is the first thing anyone sees when they pull up. Get matched with local professionals who build ones that hold their edge and their color through a decade of Iowa winters."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Driveways' }]}
+    />
+
+    <ServiceDetail
+      introHeading="Built for Iowa driveways, not just any driveway"
+      introParagraphs={[
+        "Asphalt driveways in the Quad Cities typically need resurfacing every 8-10 years and show oil stains and rutting well before that. A properly installed concrete driveway routinely lasts 25-30+ years, holds a cleaner look, and adds more resale value.",
+        "The local professionals we match you with handle everything from a straightforward pour on a new build to a full tear-out and replace on a driveway that's heaved or cracked past the point of patching.",
+      ]}
+      image="https://images.unsplash.com/photo-1781637202423-33ec5b47e52e?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Finished concrete driveway leading up to a home garage"
+      benefitsHeading="Concrete vs. asphalt for Quad Cities driveways"
+      benefits={[
+        { title: 'Longer lifespan', detail: 'A well-built concrete driveway outlasts asphalt by 2-3x with proper base prep and air-entrained mix.' },
+        { title: 'No annual sealing', detail: 'Asphalt needs re-sealing every 1-3 years to hold up; concrete does not.' },
+        { title: 'Higher resale value', detail: 'Appraisers and buyers consistently rate concrete driveways as a stronger curb-appeal investment.' },
+        { title: 'Finish options', detail: 'Broom finish, exposed aggregate, or a stamped border — asphalt only comes in black.' },
+      ]}
+      processHeading="A typical driveway installation process"
+      steps={[
+        { title: 'Free on-site estimate', detail: 'A matched professional measures the space, checks drainage and grade, and gives you a firm written price — usually within 24 hours.' },
+        { title: 'Excavation & base prep', detail: 'Old material removed, subgrade compacted, and a proper gravel base laid — this is the step that determines whether your driveway lasts.' },
+        { title: 'Forming & reinforcement', detail: 'Forms set to grade, rebar or wire mesh placed for reinforcement, control joints planned to manage cracking.' },
+        { title: 'Pour, finish & cure', detail: 'Concrete poured, screeded, and finished same-day. Vehicles are kept off it for a full 7 days while it cures.' },
+      ]}
+    />
+
+    <FAQAccordion items={faqs} />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>

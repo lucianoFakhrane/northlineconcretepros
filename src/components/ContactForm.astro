@@ -1,0 +1,263 @@
+---
+interface Props {
+  presetService?: string;
+}
+
+const { presetService } = Astro.props;
+
+const cities = ['Davenport, IA', 'Bettendorf, IA', 'Moline, IL', 'Rock Island, IL', 'Other / nearby area'];
+const serviceTypes = [
+  'Concrete Driveway',
+  'Concrete Patio',
+  'Concrete Repair',
+  'Stamped Concrete',
+  'Sidewalk Installation',
+  'Not sure yet',
+];
+---
+
+<form
+  class="contact-form"
+  id="quote-form"
+  method="POST"
+  action="https://formspree.io/f/YOUR_FORM_ID"
+  novalidate
+>
+  <div class="form-row">
+    <div class="field">
+      <label for="name">Name <span aria-hidden="true">*</span></label>
+      <input type="text" id="name" name="name" autocomplete="name" required />
+      <p class="field-error" id="name-error" role="alert"></p>
+    </div>
+    <div class="field">
+      <label for="phone">Phone <span aria-hidden="true">*</span></label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel" required />
+      <p class="field-error" id="phone-error" role="alert"></p>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="email">Email <span aria-hidden="true">*</span></label>
+    <input type="email" id="email" name="email" autocomplete="email" required />
+    <p class="field-error" id="email-error" role="alert"></p>
+  </div>
+
+  <div class="form-row">
+    <div class="field">
+      <label for="city">City</label>
+      <select id="city" name="city">
+        {cities.map((city) => <option value={city}>{city}</option>)}
+      </select>
+    </div>
+    <div class="field">
+      <label for="service">Service needed</label>
+      <select id="service" name="service">
+        {serviceTypes.map((service) => (
+          <option value={service} selected={presetService === service}>{service}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="message">Project details</label>
+    <textarea id="message" name="message" rows="3" placeholder="Approximate size, timeline, anything we should know."></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-accent contact-submit">
+    <span class="contact-submit-label">Request My Free Estimate</span>
+  </button>
+
+  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+</form>
+
+<style>
+  .contact-form {
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-row {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: 1fr;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+  }
+
+  .field label {
+    font-size: var(--text-body-sm);
+    font-weight: 700;
+  }
+
+  .field span[aria-hidden] {
+    color: var(--color-accent-deep);
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font: inherit;
+    font-size: var(--text-body-sm);
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-ink);
+    min-height: 44px;
+    transition: border-color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .field textarea {
+    min-height: 88px;
+    resize: vertical;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--color-muted);
+  }
+
+  .field input:hover,
+  .field select:hover,
+  .field textarea:hover {
+    border-color: color-mix(in oklch, var(--color-primary) 45%, var(--color-border));
+  }
+
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    border-color: var(--color-primary);
+    outline: 2.5px solid var(--color-accent);
+    outline-offset: 1px;
+  }
+
+  .field input[aria-invalid='true'],
+  .field select[aria-invalid='true'],
+  .field textarea[aria-invalid='true'] {
+    border-color: oklch(0.55 0.18 25);
+  }
+
+  .field-error {
+    min-height: 1.1em;
+    font-size: var(--text-label);
+    color: oklch(0.5 0.18 25);
+    margin: 0;
+  }
+
+  .contact-submit {
+    width: 100%;
+    margin-top: var(--space-2xs);
+  }
+
+  .contact-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-status {
+    margin: 0;
+    font-size: var(--text-body-sm);
+    font-weight: 600;
+    min-height: 1.4em;
+  }
+
+  .form-status[data-state='success'] {
+    color: var(--color-success);
+  }
+
+  .form-status[data-state='error'] {
+    color: oklch(0.5 0.18 25);
+  }
+
+  @media (min-width: 640px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#quote-form');
+  const status = document.querySelector<HTMLParagraphElement>('#form-status');
+  const submitButton = form?.querySelector<HTMLButtonElement>('.contact-submit');
+  const submitLabel = form?.querySelector<HTMLSpanElement>('.contact-submit-label');
+
+  const requiredFields = ['name', 'phone', 'email'] as const;
+
+  function validate(): boolean {
+    if (!form) return false;
+    let valid = true;
+
+    for (const name of requiredFields) {
+      const input = form.elements.namedItem(name) as HTMLInputElement | null;
+      const error = document.querySelector<HTMLParagraphElement>(`#${name}-error`);
+      if (!input || !error) continue;
+
+      let message = '';
+      if (!input.value.trim()) {
+        message = 'This field is required.';
+      } else if (name === 'email' && !input.checkValidity()) {
+        message = 'Enter a valid email address.';
+      }
+
+      if (message) {
+        input.setAttribute('aria-invalid', 'true');
+        error.textContent = message;
+        valid = false;
+      } else {
+        input.removeAttribute('aria-invalid');
+        error.textContent = '';
+      }
+    }
+
+    return valid;
+  }
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!status || !submitButton || !submitLabel || !form) return;
+
+    if (!validate()) {
+      status.textContent = 'Please fix the highlighted fields.';
+      status.dataset.state = 'error';
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitLabel.textContent = 'Sending…';
+    status.textContent = '';
+    status.dataset.state = '';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        status.textContent = "Thanks — we'll be in touch within one business day.";
+        status.dataset.state = 'success';
+        form.reset();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch {
+      status.textContent = 'Something went wrong. Please email info@northlineconcretepros.com instead.';
+      status.dataset.state = 'error';
+    } finally {
+      submitButton.disabled = false;
+      submitLabel.textContent = 'Request My Free Estimate';
+    }
+  });
+</script>

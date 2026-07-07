@@ -1,0 +1,238 @@
+@import '@fontsource-variable/archivo';
+
+:root {
+  /* Color — The Steel Commitment Rule: primary carries real surface area, not a token accent. */
+  --color-bg: oklch(1 0 0);
+  --color-surface: oklch(0.97 0.006 205);
+  --color-surface-deep: oklch(0.93 0.009 205);
+  --color-border: oklch(0.87 0.008 205);
+
+  --color-ink: oklch(0.19 0.014 240);
+  --color-muted: oklch(0.42 0.02 230);
+
+  --color-primary: oklch(0.4 0.09 205);
+  --color-primary-deep: oklch(0.31 0.085 205);
+  --color-primary-ink: oklch(1 0 0);
+
+  --color-accent: oklch(0.72 0.16 55);
+  --color-accent-deep: oklch(0.64 0.17 55);
+  --color-accent-ink: oklch(0.16 0.02 55);
+
+  --color-success: oklch(0.55 0.13 155);
+
+  /* Spacing — 4pt base scale */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* Typography */
+  --font-body: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+
+  --text-label: 0.8125rem;
+  --text-body-sm: 0.9375rem;
+  --text-body: 1.125rem;
+  --text-title: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  --text-headline: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+  --text-display: clamp(2.75rem, 1.9rem + 3.8vw, 4.5rem);
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-body: 1.65;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+
+  /* Shadow — interaction response only, never ambient */
+  --shadow-hover: 0 6px 20px oklch(0.19 0.014 240 / 0.16);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 160ms;
+  --duration-base: 280ms;
+
+  /* Z-index scale */
+  --z-sticky: 20;
+  --z-modal-backdrop: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+
+  --container-max: 76rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+p.prose,
+.measure {
+  max-width: 65ch;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-lg);
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-sm);
+  background: var(--color-primary);
+  color: var(--color-primary-ink);
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  z-index: var(--z-modal);
+  transition: top var(--duration-fast) var(--ease-out-expo);
+}
+
+.skip-link:focus-visible {
+  top: var(--space-sm);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.75rem;
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color var(--duration-fast) var(--ease-out-expo),
+    transform var(--duration-fast) var(--ease-out-expo),
+    box-shadow var(--duration-fast) var(--ease-out-expo);
+  min-height: 44px;
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.btn-accent:hover {
+  background: var(--color-accent-deep);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary-ink);
+  border: 1.5px solid color-mix(in oklch, var(--color-primary-ink) 55%, transparent);
+}
+
+.btn-outline:hover {
+  background: color-mix(in oklch, var(--color-primary-ink) 12%, transparent);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-ink);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-deep);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2.5px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

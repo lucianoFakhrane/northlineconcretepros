@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const services = [
+  {
+    title: 'Concrete Driveways',
+    href: '/services/concrete-driveways/',
+    description:
+      'Durable, custom driveways built to shrug off Iowa winters — from a straightforward pour to a full tear-out and replace.',
+    image: 'https://images.unsplash.com/photo-1781637202423-33ec5b47e52e?auto=format&fit=crop&w=1000&q=80',
+    alt: 'Finished concrete driveway leading up to a home garage',
+  },
+  {
+    title: 'Concrete Patios',
+    href: '/services/concrete-patios/',
+    description: 'Custom patios that extend your living space outdoors, built to pair with your landscaping.',
+    image: 'https://images.unsplash.com/photo-1704747885537-99df83ca963f?auto=format&fit=crop&w=1000&q=80',
+    alt: 'Outdoor concrete patio furnished with a table and chairs',
+  },
+  {
+    title: 'Concrete Repair',
+    href: '/services/concrete-repair/',
+    description: 'Crack repair, resurfacing, and leveling — matched professionals tell you honestly when repair beats replacement.',
+    image: 'https://images.unsplash.com/photo-1546816077-623b4eaab352?auto=format&fit=crop&w=1000&q=80',
+    alt: 'Close-up of a crack across a concrete surface awaiting repair',
+  },
+  {
+    title: 'Stamped Concrete',
+    href: '/services/stamped-concrete/',
+    description: 'Decorative patterns and color that read as natural stone at a fraction of the cost.',
+    image: 'https://images.unsplash.com/photo-1769442263032-06c17a493bea?auto=format&fit=crop&w=1000&q=80',
+    alt: 'Textured, patterned stamped concrete walkway with cast shadows',
+  },
+  {
+    title: 'Sidewalk Installation',
+    href: '/services/sidewalk-installation/',
+    description: 'Residential and commercial walkways poured to code, with municipal permitting handled for you.',
+    image: 'https://images.unsplash.com/photo-1590672813598-24acae291d66?auto=format&fit=crop&w=1000&q=80',
+    alt: 'Plain gray concrete walkway running between buildings',
+  },
+];
+---
+
+<Layout
+  title="Concrete Services in Davenport & Quad Cities | Northline"
+  description="Driveways, patios, stamped concrete, repair and sidewalk installation. Request a free estimate and get matched with local concrete professionals."
+  path="/services/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      title="Concrete Services We Help With"
+      subtitle="Submit a request for any of these projects and we'll match you with available local concrete professionals serving your area."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
+    />
+
+    <section class="services-hub">
+      <div class="container services-grid">
+        {
+          services.map((service) => (
+            <a href={service.href} class="service-card">
+              <img src={service.image} alt={service.alt} loading="lazy" width="1000" height="750" />
+              <div class="service-card-body">
+                <h2>{service.title}</h2>
+                <p class="measure">{service.description}</p>
+                <span class="service-card-link">
+                  View service details
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .services-hub {
+    padding-block: var(--space-2xl);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .service-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: box-shadow var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .service-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .service-card-body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    flex: 1;
+  }
+
+  .service-card-body h2 {
+    font-size: var(--text-title);
+  }
+
+  .service-card-body p {
+    color: var(--color-muted);
+    font-size: var(--text-body-sm);
+    flex: 1;
+  }
+
+  .service-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    margin-top: var(--space-sm);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    color: var(--color-primary);
+  }
+
+  .service-card-link svg {
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .service-card:hover .service-card-link svg {
+    transform: translateX(3px);
+  }
+</style>

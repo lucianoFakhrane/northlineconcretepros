@@ -1,0 +1,256 @@
+---
+const navLinks = [
+  { href: '/services/', label: 'Services' },
+  { href: '/service-areas/', label: 'Service Areas' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="wordmark">
+      Northline <span class="wordmark-accent">Concrete Pros</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <ul>
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/contact/" class="btn btn-accent header-cta">Request a Free Estimate</a>
+    </div>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      data-menu-toggle
+    >
+      <span class="visually-hidden">Toggle menu</span>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+
+  <dialog id="mobile-nav" class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="wordmark">Northline <span class="wordmark-accent">Concrete Pros</span></span>
+      <button type="button" class="mobile-nav-close" data-menu-close>
+        <span class="visually-hidden">Close menu</span>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href} data-menu-close>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <a href="/contact/" class="btn btn-accent mobile-nav-cta" data-menu-close>Request a Free Estimate</a>
+  </dialog>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-block: var(--space-sm);
+  }
+
+  .wordmark {
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+
+  .wordmark-accent {
+    color: var(--color-primary);
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-desktop ul {
+    display: flex;
+    gap: var(--space-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-desktop a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--text-body-sm);
+    color: var(--color-ink);
+    padding-block: var(--space-2xs);
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .nav-desktop a:hover {
+    border-color: var(--color-primary);
+  }
+
+  .header-actions {
+    display: none;
+  }
+
+  .header-phone {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    border: none;
+    padding: 0;
+    margin: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    background: var(--color-bg);
+    z-index: var(--z-modal);
+  }
+
+  .mobile-nav::backdrop {
+    background: oklch(0.19 0.014 240 / 0.4);
+  }
+
+  .mobile-nav[open] {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+  }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+  }
+
+  .mobile-nav-close {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    margin: 0 0 var(--space-lg);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .mobile-nav-list a {
+    text-decoration: none;
+    font-size: var(--text-title);
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .mobile-nav-phone {
+    margin-bottom: var(--space-sm);
+    width: 100%;
+  }
+
+  .mobile-nav-cta {
+    width: 100%;
+  }
+
+  @media (min-width: 900px) {
+    .nav-desktop {
+      display: block;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const dialog = document.querySelector<HTMLDialogElement>('#mobile-nav');
+  const closers = document.querySelectorAll<HTMLElement>('[data-menu-close]');
+
+  toggle?.addEventListener('click', () => {
+    dialog?.showModal();
+    toggle.setAttribute('aria-expanded', 'true');
+  });
+
+  const close = () => {
+    dialog?.close();
+    toggle?.setAttribute('aria-expanded', 'false');
+  };
+
+  closers.forEach((el) => el.addEventListener('click', close));
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) close();
+  });
+</script>

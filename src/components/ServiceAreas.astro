@@ -1,0 +1,104 @@
+---
+const areas = [
+  { name: 'Davenport', state: 'IA', note: 'Connect with local concrete professionals serving Davenport neighborhoods.' },
+  { name: 'Bettendorf', state: 'IA', note: 'Matched professionals available for jobs along the Mississippi bluff neighborhoods.' },
+  { name: 'Moline', state: 'IL', note: 'Cross-river requests matched with Illinois-side professionals.' },
+  { name: 'Rock Island', state: 'IL', note: 'Professionals familiar with Rock Island County permitting requirements.' },
+];
+---
+
+<section class="areas" id="areas">
+  <div class="container">
+    <div class="areas-header">
+      <h2>Proudly Serving the Quad Cities</h2>
+      <p class="measure">
+        Connect with trusted concrete professionals serving Davenport, Bettendorf, Moline, Rock
+        Island, and nearby areas. If you're just outside these four cities, submit a request
+        anyway — we take on nearby areas on a case-by-case basis.
+      </p>
+    </div>
+
+    <ul class="areas-list">
+      {
+        areas.map((area) => (
+          <li>
+            <div class="areas-list-name">
+              <span>{area.name}</span>
+              <span class="areas-list-state">{area.state}</span>
+            </div>
+            <p class="areas-list-note measure">{area.note}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .areas {
+    padding-block: var(--space-2xl);
+  }
+
+  .areas-header {
+    margin-bottom: var(--space-xl);
+    max-width: 42rem;
+  }
+
+  .areas-header h2 {
+    font-size: var(--text-headline);
+    margin-bottom: var(--space-sm);
+  }
+
+  .areas-header p {
+    color: var(--color-muted);
+  }
+
+  .areas-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .areas-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+    padding-block: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .areas-list-name {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2xs);
+    font-size: var(--text-title);
+    font-weight: 800;
+  }
+
+  .areas-list-state {
+    font-size: var(--text-label);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+  }
+
+  .areas-list-note {
+    color: var(--color-muted);
+    font-size: var(--text-body-sm);
+  }
+
+  @media (min-width: 720px) {
+    .areas-list li {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+
+    .areas-list-name {
+      flex-shrink: 0;
+      width: 14rem;
+    }
+  }
+</style>

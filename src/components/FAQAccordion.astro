@@ -1,0 +1,102 @@
+---
+interface QA {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  items: QA[];
+  faqSchema?: boolean;
+}
+
+const { title = 'Frequently Asked Questions', items, faqSchema = true } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<section class="faq">
+  <div class="container">
+    <h2 class="faq-title">{title}</h2>
+    <div class="faq-list">
+      {
+        items.map((item, index) => (
+          <details class="faq-item" name={`faq-${Math.random()}`}>
+            <summary>
+              <span>{item.question}</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </summary>
+            <p class="measure">{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+<style>
+  .faq {
+    padding-block: var(--space-2xl);
+  }
+
+  .faq-title {
+    font-size: var(--text-headline);
+    margin-bottom: var(--space-lg);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+    padding-block: var(--space-md);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: var(--text-body);
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    transition: transform var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .faq-item[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  .faq-item p {
+    color: var(--color-muted);
+    margin-top: var(--space-sm);
+  }
+</style>

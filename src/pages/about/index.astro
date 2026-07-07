@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import ContactCta from '../../components/ContactCta.astro';
+
+const process = [
+  { step: 'Submit a request', detail: 'Tell us about your project through the contact form — most requests are reviewed the same business day.' },
+  { step: 'We match your request', detail: 'Your project is matched with available local concrete professionals serving your area.' },
+  { step: 'Get a free estimate', detail: 'A matched professional reaches out to discuss your project and provide a free, no-obligation estimate.' },
+  { step: 'Compare and decide', detail: 'You choose whether to move forward — no pressure and no obligation to hire.' },
+];
+---
+
+<Layout
+  title="About Northline Concrete Pros | Quad Cities Concrete Estimates"
+  description="Northline Concrete Pros connects Quad Cities homeowners with local concrete professionals. Learn how our free matching service works."
+  path="/about/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      title="About Northline Concrete Pros"
+      subtitle="A free service that connects Quad Cities homeowners with local concrete professionals for driveways, patios, and sidewalks."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
+    />
+
+    <section class="about-story">
+      <div class="container about-story-grid">
+        <div class="about-story-media">
+          <img
+            src="https://images.unsplash.com/photo-1774931363306-5a896cd4dd02?auto=format&fit=crop&w=1200&q=80"
+            alt="Fresh concrete pour being finished on a Quad Cities job site"
+            loading="eager"
+            width="1200"
+            height="1400"
+          />
+        </div>
+        <div class="about-story-copy">
+          <h2>What Northline Concrete Pros does</h2>
+          <p class="measure">
+            Northline Concrete Pros helps homeowners in Davenport and the Quad Cities connect with
+            local concrete professionals for driveways, patios, sidewalks, stamped concrete,
+            garage slabs, and concrete repair.
+          </p>
+          <p class="measure">
+            Instead of calling around for quotes yourself, you submit one request through our
+            contact form. We review it and match you with available local concrete professionals
+            serving your area, who reach out directly to discuss your project and provide a free,
+            no-obligation estimate.
+          </p>
+          <p class="measure">
+            There's no cost to submit a request, and no obligation to hire anyone we connect you
+            with.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-process">
+      <div class="container">
+        <h2>How It Works</h2>
+        <ol class="process-steps">
+          {
+            process.map((item, index) => (
+              <li>
+                <span class="process-number">{index + 1}</span>
+                <div>
+                  <p class="process-step-title">{item.step}</p>
+                  <p class="process-step-detail measure">{item.detail}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="about-community">
+      <div class="container about-community-inner">
+        <h2>Focused on the Quad Cities</h2>
+        <p class="measure">
+          We connect homeowners with concrete professionals serving Davenport, Bettendorf, Moline,
+          Rock Island, and nearby areas. If you're just outside these communities, submit a request
+          anyway — we take on nearby areas on a case-by-case basis.
+        </p>
+      </div>
+    </section>
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .about-story {
+    padding-block: var(--space-2xl);
+  }
+
+  .about-story-grid {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .about-story-media img {
+    width: 100%;
+    height: 100%;
+    max-height: 28rem;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  .about-story-copy h2 {
+    font-size: var(--text-headline);
+    margin-bottom: var(--space-md);
+  }
+
+  .about-story-copy p {
+    color: var(--color-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .about-team {
+    padding-block: var(--space-2xl);
+    background: var(--color-surface);
+  }
+
+  .about-team h2,
+  .about-process h2,
+  .about-community h2 {
+    font-size: var(--text-headline);
+    margin-bottom: var(--space-lg);
+  }
+
+  .team-grid {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .team-card {
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+  }
+
+  .team-card h3 {
+    font-size: var(--text-title);
+    margin-bottom: var(--space-3xs);
+  }
+
+  .team-role {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: var(--text-body-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .team-bio {
+    color: var(--color-muted);
+    font-size: var(--text-body-sm);
+  }
+
+  .about-process {
+    padding-block: var(--space-2xl);
+  }
+
+  .process-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .process-steps li {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .process-number {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-primary-ink);
+    font-weight: 800;
+    font-size: var(--text-body-sm);
+  }
+
+  .process-step-title {
+    font-weight: 700;
+    margin-bottom: var(--space-3xs);
+  }
+
+  .process-step-detail {
+    color: var(--color-muted);
+    font-size: var(--text-body-sm);
+  }
+
+  .about-community {
+    padding-block: var(--space-2xl);
+    background: var(--color-primary);
+    color: var(--color-primary-ink);
+  }
+
+  .about-community-inner p {
+    color: color-mix(in oklch, var(--color-primary-ink) 92%, transparent);
+    font-size: var(--text-body);
+  }
+
+  @media (min-width: 900px) {
+    .about-story-grid {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+  }
+</style>

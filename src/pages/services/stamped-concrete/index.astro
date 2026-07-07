@@ -1,0 +1,77 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+import FAQAccordion from '../../../components/FAQAccordion.astro';
+import ContactCta from '../../../components/ContactCta.astro';
+
+const faqs = [
+  {
+    question: 'How much more does stamped concrete cost than plain concrete?',
+    answer:
+      'Stamped concrete typically runs 15-25% more than a standard broom-finished slab, due to the extra labor for coloring and stamping. It still comes in well below the cost of natural stone or brick pavers for a comparable look.',
+  },
+  {
+    question: 'Does stamped concrete hold up to Iowa winters?',
+    answer:
+      "Yes, provided it's installed with the same air-entrained mix and proper base prep as any concrete slab, and resealed every 2-3 years. The stamping pattern itself doesn't affect durability — sealing schedule and base prep are what matter most.",
+  },
+  {
+    question: 'What patterns and colors are available?',
+    answer:
+      "Common patterns include ashlar slate, running-bond brick, cobblestone, and wood-plank textures, with color options from earth-tone tans and browns to charcoal and terracotta. Professionals typically bring physical sample boards to your estimate so you can see the actual texture and color before committing.",
+  },
+  {
+    question: 'Can stamped concrete be repaired if it cracks?',
+    answer:
+      "Yes, though patching a stamped surface is more visible than patching plain concrete since matching the pattern and color exactly is difficult. Professionals typically route and fill cracks along joint lines where possible to keep repairs discreet.",
+  },
+];
+---
+
+<Layout
+  title="Stamped Concrete Contractor Davenport IA | Northline Concrete Pros"
+  description="Decorative stamped concrete patios, walkways and driveways that read as natural stone at a fraction of the cost. Serving the Quad Cities."
+  path="/services/stamped-concrete/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      eyebrow="Concrete Services"
+      title="Stamped & Decorative Concrete"
+      subtitle="The texture and color of natural stone, brick, or slate — poured as one durable slab instead of hundreds of individual pavers."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Stamped Concrete' }]}
+    />
+
+    <ServiceDetail
+      introHeading="Stone and slate looks, poured-concrete durability"
+      introParagraphs={[
+        "Stamped concrete uses texturing mats and integral or surface-applied color to replicate natural stone, brick, or wood — while pouring as a single continuous slab. That means no individual pavers to shift, settle unevenly, or grow weeds between joints over time.",
+        "It's most often used for patios and entryway walkways where homeowners want a decorative look but don't want the long-term maintenance of a paver installation.",
+      ]}
+      image="https://images.unsplash.com/photo-1769442263032-06c17a493bea?auto=format&fit=crop&w=1200&q=80"
+      imageAlt="Textured, patterned stamped concrete walkway with cast shadows"
+      benefitsHeading="Stamped concrete vs. natural stone or pavers"
+      benefits={[
+        { title: 'Fraction of the cost', detail: 'Delivers a comparable look to natural stone or brick pavers at meaningfully lower material and labor cost.' },
+        { title: 'No shifting joints', detail: "Poured as one slab — unlike pavers, there's no joint sand to wash out or individual units to heave over time." },
+        { title: 'Wide pattern selection', detail: 'Ashlar slate, running-bond brick, cobblestone, and wood-plank textures, in a range of integral colors.' },
+        { title: 'Same base durability', detail: "Built on the same compacted base and air-entrained mix as any quality concrete slab — decorative doesn't mean less durable." },
+      ]}
+      processHeading="A typical stamped concrete process"
+      steps={[
+        { title: 'Pattern & color selection', detail: 'The matched professional brings sample boards to your estimate so you can compare patterns and colors in person before quoting.' },
+        { title: 'Base prep & forming', detail: 'Rigorous excavation and base compaction just like any quality pour — the decorative surface only lasts as long as what is underneath it.' },
+        { title: 'Color & stamping', detail: 'Color applied, texturing mats pressed into the surface at the right cure window, and edges detailed by hand.' },
+        { title: 'Sealing', detail: 'A sealant coat locks in color and protects the texture; resealing every 2-3 years is typically recommended.' },
+      ]}
+    />
+
+    <FAQAccordion items={faqs} />
+
+    <ContactCta />
+  </main>
+  <Footer />
+</Layout>
