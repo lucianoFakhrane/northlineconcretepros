@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<Layout
+  title="Privacy Policy | Northline Concrete Pros"
+  description="Learn how Northline Concrete Pros collects, uses and shares information submitted through its concrete estimate request service."
+  path="/privacy/"
+>
+  <Header />
+  <main id="main">
+    <PageHero
+      title="Privacy Policy"
+      subtitle="How information submitted to Northline Concrete Pros is handled."
+      crumbs={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]}
+    />
+
+    <article class="privacy-page">
+      <div class="container privacy-content measure">
+        <p><strong>Effective date:</strong> July 12, 2026</p>
+
+        <h2>Who we are</h2>
+        <p>Northline Concrete Pros is a free matching service. We help homeowners in the Quad Cities submit concrete project requests and connect with available local concrete professionals. Northline Concrete Pros does not perform the concrete work described on this website.</p>
+
+        <h2>Information we collect</h2>
+        <p>When you submit an estimate request, we collect the information you provide, which may include your name, phone number, email address, city, requested service and project details. Our hosting and form providers may also process basic technical information such as IP address, browser details and request timestamps for security, delivery and abuse prevention.</p>
+
+        <h2>How we use and share information</h2>
+        <p>We use submitted information to review your request, communicate with you, prevent abuse and try to match your project with available local concrete professionals. We may share your request and contact details with those professionals so they can contact you about your project. Submitting a request does not require you to hire anyone.</p>
+
+        <h2>Service providers</h2>
+        <p>We use Cloudflare to host and protect the website and Formspree to process contact-form submissions. These providers may process information according to their own privacy terms while providing services to us.</p>
+
+        <h2>Retention and security</h2>
+        <p>Information is retained only as reasonably necessary to review requests, provide the matching service, maintain records, prevent abuse and meet applicable obligations. No internet transmission or storage system can be guaranteed completely secure.</p>
+
+        <h2>Your choices</h2>
+        <p>You may choose not to submit the form and can contact us by email instead. You may also ask us to access, correct or delete information you previously submitted, subject to applicable legal and operational requirements.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>We may update this policy as the service changes. The effective date at the top of this page shows when it was last revised.</p>
+
+        <h2>Contact</h2>
+        <p>For privacy questions or requests, email <a href="mailto:northlineconcretepros@gmail.com">northlineconcretepros@gmail.com</a>.</p>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .privacy-page { padding-block: var(--space-2xl); }
+  .privacy-content { margin-inline: auto; }
+  .privacy-content > * + * { margin-top: var(--space-sm); }
+  .privacy-content h2 { margin-top: var(--space-lg); font-size: var(--text-title); }
+  .privacy-content p { color: var(--color-muted); }
+  .privacy-content strong { color: var(--color-ink); }
+  .privacy-content a { color: var(--color-primary); font-weight: 700; }
+</style>

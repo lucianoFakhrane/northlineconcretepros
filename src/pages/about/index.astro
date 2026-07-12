@@ -6,7 +6,7 @@ import PageHero from '../../components/PageHero.astro';
 import ContactCta from '../../components/ContactCta.astro';
 
 const process = [
-  { step: 'Submit a request', detail: 'Tell us about your project through the contact form. We aim to review requests within one business day.' },
+  { step: 'Submit a request', detail: 'Tell us about your project through the contact form.' },
   { step: 'We match your request', detail: 'Your project is matched with available local concrete professionals serving your area.' },
   { step: 'Get a free estimate', detail: 'A matched professional reaches out to discuss your project and provide a free, no-obligation estimate.' },
   { step: 'Compare and decide', detail: 'You choose whether to move forward — no pressure and no obligation to hire.' },
@@ -30,8 +30,8 @@ const process = [
       <div class="container about-story-grid">
         <div class="about-story-media">
           <img
-            src="https://images.unsplash.com/photo-1774931363306-5a896cd4dd02?auto=format&fit=crop&w=1200&q=80"
-            alt="Fresh concrete pour being finished on a Quad Cities job site"
+            src="/images/repair.webp"
+            alt="Concrete being poured and finished"
             loading="eager"
             width="1200"
             height="1400"
@@ -122,45 +122,10 @@ const process = [
     margin-bottom: var(--space-sm);
   }
 
-  .about-team {
-    padding-block: var(--space-2xl);
-    background: var(--color-surface);
-  }
-
-  .about-team h2,
   .about-process h2,
   .about-community h2 {
     font-size: var(--text-headline);
     margin-bottom: var(--space-lg);
-  }
-
-  .team-grid {
-    display: grid;
-    gap: var(--space-md);
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-
-  .team-card {
-    background: var(--color-bg);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-  }
-
-  .team-card h3 {
-    font-size: var(--text-title);
-    margin-bottom: var(--space-3xs);
-  }
-
-  .team-role {
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: var(--text-body-sm);
-    margin-bottom: var(--space-sm);
-  }
-
-  .team-bio {
-    color: var(--color-muted);
-    font-size: var(--text-body-sm);
   }
 
   .about-process {

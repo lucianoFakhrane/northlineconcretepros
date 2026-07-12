@@ -1,43 +1,37 @@
-# Astro Starter Kit: Minimal
+# Northline Concrete Pros
+
+Local SEO website for a free service that helps Quad Cities homeowners connect with available local concrete professionals.
+
+## Stack
+
+- Astro static site
+- Cloudflare hosting and DNS
+- Formspree form processing
+
+## Local development
+
+Requires Node.js 22.12 or newer.
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The production domain is `https://www.northlineconcretepros.com/`.
 
-## 🚀 Project Structure
+## Validation
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run check
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The build output is written to `dist/`. Every production change should keep canonical URLs, sitemap URLs and structured data on the `www` hostname.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Contact form
 
-Any static assets, like images, can be placed in the `public/` directory.
+The estimate request form is processed by Formspree. It includes required consent and an anti-spam honeypot. Test submissions must be clearly identified as tests and verified in the receiving mailbox.
 
-## 🧞 Commands
+## Deployment
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Changes pushed to `main` are deployed through the connected Cloudflare project. After deployment, verify the canonical tag, sitemap, robots file, structured data and hostname redirects on the public site.

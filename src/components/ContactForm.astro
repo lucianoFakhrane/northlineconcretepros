@@ -23,6 +23,11 @@ const serviceTypes = [
   action="https://formspree.io/f/xjgqdpda"
   novalidate
 >
+  <input type="hidden" name="_subject" value="New Northline Concrete Pros estimate request" />
+  <div class="form-honeypot" aria-hidden="true">
+    <label for="company-website">Leave this field empty</label>
+    <input type="text" id="company-website" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </div>
   <div class="form-row">
     <div class="field">
       <label for="name">Name <span aria-hidden="true">*</span></label>
@@ -41,6 +46,16 @@ const serviceTypes = [
     <input type="email" id="email" name="email" autocomplete="email" required />
     <p class="field-error" id="email-error" role="alert"></p>
   </div>
+
+  <div class="consent-field">
+    <input type="checkbox" id="consent" name="consent" value="I agree" required />
+    <label for="consent">
+      I agree that Northline Concrete Pros may use my information to review this request and share
+      it with available local concrete professionals who may contact me about my project. See the
+      <a href="/privacy/">Privacy Policy</a>. <span aria-hidden="true">*</span>
+    </label>
+  </div>
+  <p class="field-error" id="consent-error" role="alert"></p>
 
   <div class="form-row">
     <div class="field">
@@ -153,6 +168,38 @@ const serviceTypes = [
     margin: 0;
   }
 
+  .form-honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .consent-field {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2xs);
+  }
+
+  .consent-field input {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .consent-field label {
+    color: var(--color-muted);
+    font-size: var(--text-label);
+    line-height: 1.5;
+  }
+
+  .consent-field a {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
   .contact-submit {
     width: 100%;
     margin-top: var(--space-2xs);
@@ -220,6 +267,19 @@ const serviceTypes = [
       }
     }
 
+    const consent = form.elements.namedItem('consent') as HTMLInputElement | null;
+    const consentError = document.querySelector<HTMLParagraphElement>('#consent-error');
+    if (consent && consentError) {
+      if (!consent.checked) {
+        consent.setAttribute('aria-invalid', 'true');
+        consentError.textContent = 'Please confirm that we may use and share your information for this request.';
+        valid = false;
+      } else {
+        consent.removeAttribute('aria-invalid');
+        consentError.textContent = '';
+      }
+    }
+
     return valid;
   }
 
@@ -246,7 +306,7 @@ const serviceTypes = [
       });
 
       if (response.ok) {
-        status.textContent = "Thanks — we'll be in touch within one business day.";
+        status.textContent = 'Thanks — your request has been received for review.';
         status.dataset.state = 'success';
         form.reset();
       } else {
