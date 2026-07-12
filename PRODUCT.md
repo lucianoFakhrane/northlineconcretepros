@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Homeowners in Davenport, Bettendorf, Moline, and Rock Island (Quad Cities) searching locally — mostly on mobile — for a concrete contractor: driveways, patios, repair, stamped concrete, sidewalks. Their decision hinges on trust signals (licensed, insured, experience, real work shown), not just price.
+Homeowners in Davenport, Bettendorf, Moline, and Rock Island (Quad Cities) searching locally — mostly on mobile — for concrete services: driveways, patios, repair, stamped concrete, and sidewalks. Northline helps them submit a project request and connect with available local concrete professionals.
 
 ## Product Purpose
 
@@ -14,7 +14,7 @@ A local-SEO marketing site that converts organic/local search traffic into quali
 
 ## Brand Personality
 
-Robust, reliable, local. An established company with real people and real projects behind it — not a faceless lead-generation funnel.
+Direct, useful, and local. A transparent matching service that explains what it does without presenting itself as the contractor performing the work.
 
 ## Anti-references
 
@@ -22,8 +22,8 @@ Generic contractor-website templates: stock photography, cookie-cutter WordPress
 
 ## Design Principles
 
-- Prove credibility with specifics (real names, years in business, project counts, licenses) instead of generic "we're the best" copy.
-- Phone number and CTA visible on every page, no exceptions.
+- Describe the matching service accurately and avoid unsupported claims about licenses, insurance, crews, experience, warranties, reviews, or completed projects.
+- Keep the estimate-request CTA visible on every page.
 - Each city page carries genuinely distinct local content — never find-and-replace duplication.
 - Mobile-first: local concrete searches happen predominantly on phones.
 

@@ -9,21 +9,36 @@ interface Props {
 
 const { title, description, path = '/' } = Astro.props;
 const canonicalURL = new URL(path, Astro.site);
+const siteURL = 'https://www.northlineconcretepros.com';
 
-const businessSchema = {
+const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://northlineconcretepros.com/#business',
-  name: 'Northline Concrete Pros',
-  description:
-    'Northline Concrete Pros helps homeowners in Davenport and the Quad Cities connect with local concrete professionals for driveways, patios, stamped concrete, repair and sidewalks.',
-  email: 'northlineconcretepros@gmail.com',
-  url: 'https://northlineconcretepros.com',
-  areaServed: [
-    { '@type': 'City', name: 'Davenport, IA' },
-    { '@type': 'City', name: 'Bettendorf, IA' },
-    { '@type': 'City', name: 'Moline, IL' },
-    { '@type': 'City', name: 'Rock Island, IL' },
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteURL}/#organization`,
+      name: 'Northline Concrete Pros',
+      description:
+        'Northline Concrete Pros helps homeowners in Davenport and the Quad Cities connect with local concrete professionals for driveways, patios, stamped concrete, repair and sidewalks.',
+      email: 'northlineconcretepros@gmail.com',
+      url: `${siteURL}/`,
+      areaServed: [
+        { '@type': 'City', name: 'Davenport, IA' },
+        { '@type': 'City', name: 'Bettendorf, IA' },
+        { '@type': 'City', name: 'Moline, IL' },
+        { '@type': 'City', name: 'Rock Island, IL' },
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteURL}/#website`,
+      url: `${siteURL}/`,
+      name: 'Northline Concrete Pros',
+      description:
+        'A free service that helps Quad Cities homeowners connect with local concrete professionals.',
+      publisher: { '@id': `${siteURL}/#organization` },
+      inLanguage: 'en-US',
+    },
   ],
 };
 ---
@@ -47,7 +62,7 @@ const businessSchema = {
 
     <meta name="theme-color" content="#193249" />
 
-    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>

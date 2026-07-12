@@ -40,13 +40,13 @@ Cada página abaixo segue o padrão: **Title Tag | Meta Description | H1 | Seç�
 
 ### Home (`/`)
 - **Title:** Concrete Contractor Davenport IA | Northline Concrete Pros
-- **Meta description:** Licensed concrete contractor serving Davenport, Bettendorf, Moline & Rock Island. Driveways, patios, stamped concrete & repair. Free estimates.
+- **Meta description:** Connect with local concrete professionals serving Davenport, Bettendorf, Moline & Rock Island. Driveways, patios, stamped concrete & repair. Free estimates.
 - **H1:** Quad Cities' Trusted Concrete Contractor
 - **Seções:**
   1. Hero com CTA (telefone + "Get a Free Quote")
   2. Faixa de confiança (licenciado, segurado, anos de experiência, área atendida)
   3. Serviços em destaque (cards linkando para /services/*)
-  4. Por que escolher a Northline (diferenciais reais: garantia, prazo, equipe própria vs subcontratada)
+  4. Como funciona o matching service (solicitação, encaminhamento e contato do profissional)
   5. Áreas atendidas (mapa ou lista linkando para /service-areas/*)
   6. Depoimentos de clientes
   7. Galeria rápida (3-6 fotos de projetos, se houver)
@@ -55,10 +55,10 @@ Cada página abaixo segue o padrão: **Title Tag | Meta Description | H1 | Seç�
 
 ### About (`/about/`)
 - **Title:** About Northline Concrete Pros | Quad Cities Concrete Experts
-- **Meta description:** Meet the team behind Northline Concrete Pros — local, licensed, and dedicated to quality concrete work across the Quad Cities.
+- **Meta description:** Learn how Northline Concrete Pros helps Quad Cities homeowners connect with local concrete professionals for free estimates.
 - **H1:** About Northline Concrete Pros
-- **Seções:** História/missão, equipe (fotos reais se possível), licenças e seguro, processo de trabalho (da cotação à entrega), compromisso com a comunidade local
-- **Nota importante:** essa é a página que mais separa "empresa real" de "site genérico de leads". Use nomes, fotos, número de anos de atuação, projetos concluídos — nada de texto genérico de stock.
+- **Seções:** Objetivo do serviço, processo de matching, regiões atendidas, ausência de custo e obrigação para solicitar uma estimativa
+- **Nota importante:** descreva a Northline de forma transparente como um matching service. Não atribua à Northline equipe de obra, licenças, seguro, experiência, garantias, avaliações ou projetos executados.
 
 ### Services — Hub (`/services/`)
 - **Title:** Concrete Services in Davenport & Quad Cities | Northline
@@ -104,7 +104,7 @@ Cada página abaixo segue o padrão: **Title Tag | Meta Description | H1 | Seç�
 #### Páginas de cidade (Davenport, Bettendorf, Moline, Rock Island)
 Mesma estrutura para as 4, adaptando nome da cidade:
 - **Title:** Concrete Contractor in [Cidade], IA/IL | Northline Concrete Pros
-- **Meta description:** Local concrete contractor serving [Cidade]. Driveways, patios, repair & more. Licensed, insured, free estimates.
+- **Meta description:** Connect with local concrete professionals serving [Cidade]. Driveways, patios, repair & more. Free estimates.
 - **H1:** Concrete Contractor in [Cidade]
 - **Seções:** Breve intro local (bairros/pontos de referência, se souber), lista de serviços oferecidos ali com links, depoimento de cliente local (se houver), CTA
 - **Nota SEO:** Essas páginas precisam ter conteúdo genuinamente diferente entre si (não apenas trocar o nome da cidade) — mencione detalhes reais de cada cidade para evitar penalização por conteúdo duplicado.
@@ -158,8 +158,8 @@ Mesma estrutura para as 4, adaptando nome da cidade:
 ---
 
 ## 4. Observações para evitar "cara de site genérico de leads"
-- Use fotos e nomes reais sempre que possível (equipe, projetos, depoimentos)
+- Use imagens com licença adequada e não apresente fotos de banco como projetos realizados pela Northline
 - Escreva conteúdo específico para cada cidade, não apenas find-and-replace do nome
-- Inclua detalhes concretos: anos de experiência, número de projetos, tipo de garantia oferecida
+- Inclua somente informações verificadas sobre o funcionamento do matching service
 - Evite textos de stock tipo "we are the best concrete company in town" sem sustentação
 - Adicione número de telefone e CTA visíveis em todas as páginas

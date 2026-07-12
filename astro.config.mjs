@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://northlineconcretepros.com',
+  site: 'https://www.northlineconcretepros.com',
   integrations: [sitemap()],
 });

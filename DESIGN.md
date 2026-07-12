@@ -19,7 +19,7 @@ This system explicitly rejects the interchangeable-contractor-site look named in
 - Single sans-serif family carried across multiple weights — no decorative pairing
 - Flat-by-default surfaces; elevation appears only as a response to interaction
 - Motion is responsive (state feedback, section entrances) — never choreographed spectacle
-- Real specificity over generic reassurance: names, years, license numbers, actual project photos
+- Transparent matching-service language over unsupported contractor claims
 
 ## Colors
 
@@ -50,7 +50,7 @@ This system explicitly rejects the interchangeable-contractor-site look named in
 - **Headline** (semibold, large): section headers ("Our Services," "Proudly Serving the Quad Cities").
 - **Title** (medium-semibold): card/service titles, city-page H1s.
 - **Body** (regular, 65-75ch max line length): all prose — service descriptions, FAQ answers, testimonials.
-- **Label** (medium, small, minimal tracking): form labels, nav items, badges ("Licensed & Insured").
+- **Label** (medium, small, minimal tracking): form labels, nav items, and matching-service notices.
 
 ### Named Rules
 **The One-Family Rule.** Every weight on the page comes from a single sans-serif family. If a second face ever appears, it earns its place on a genuine contrast axis (e.g., serif for a printed-quote-style callout) — never a second similar sans "for variety."
@@ -67,9 +67,10 @@ Flat by default. Surfaces sit at rest with no shadow; elevation appears only as 
 ### Do:
 - **Do** commit steel-blue to real surface area (hero, footer, CTA blocks) — a token accent link color is not enough for a Committed strategy.
 - **Do** keep body text at ≥7:1 contrast against white; this audience reads on phones outdoors.
-- **Do** put the phone number and a CTA on every page, unmissable, per PRODUCT.md.
+- **Do** keep the estimate-request CTA visible on every page, per PRODUCT.md.
 - **Do** write genuinely different content per city page — no find-and-replace duplication.
-- **Do** use real project photos and named specifics (years in business, license numbers, project counts) instead of generic trust copy.
+- **Do** state clearly that Northline connects homeowners with local concrete professionals.
+- **Do** avoid claims about licenses, insurance, crews, experience, warranties, reviews, founders, or completed projects unless independently verified and approved.
 - **Do** build responsive, purposeful motion: section-entrance feedback and interactive-state transitions, each reduced-motion-safe.
 
 ### Don't:
