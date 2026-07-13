@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-The production domain is `https://www.northlineconcretepros.com/`.
+The production domain is `https://northlineconcretepros.com/`.
 
 ## Validation
 
@@ -26,7 +26,7 @@ npm run check
 npm run build
 ```
 
-The build output is written to `dist/`. Every production change should keep canonical URLs, sitemap URLs and structured data on the `www` hostname.
+The build output is written to `dist/`. Every production change should keep canonical URLs, sitemap URLs and structured data on the apex (non-`www`) hostname.
 
 ## Contact form
 
